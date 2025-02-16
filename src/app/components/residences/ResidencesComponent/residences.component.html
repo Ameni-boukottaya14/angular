@@ -1,0 +1,47 @@
+<div class="residences-container">
+    <h2>List of Residences</h2>
+  
+    <input type="text" [(ngModel)]="searchText" placeholder="Search Residences..." class="search-input"/>
+
+    <div *ngFor="let item of listResidences | filter: searchText" class="residence-card">
+      <img [src]="item.image" alt="{{ item.name }}" class="residence-img">
+      <h3>{{ item.name }}</h3>
+  
+      <div [ngSwitch]="item.status">
+        <div *ngSwitchCase="'Disponible'"  class="alert alert-success" role="alert">
+         Disponible
+        </div>
+        <div *ngSwitchCase="'En Construction'" class="alert alert-warning" role="alert">
+        En Construction
+        </div>
+        <div *ngSwitchCase="'Vendu'" class="alert alert-danger" role="alert">
+         Vendu
+        </div>
+      </div>
+  
+      <button (click)="showLocation(item.address)">Show Location</button>
+      <button (click)="addToFavorites(item)">Like</button>
+
+    </div>
+    <h2>Favorites</h2>
+    <div *ngIf="listResidencesFav.length === 0">No favorites added yet.</div>
+    <div *ngFor="let item of listResidencesFav" class="residence-card favorite">
+      <h3>{{ item.name }}</h3>
+      <img [src]="item.image" alt="{{ item.name }}" class="residence-img">
+
+      <div [ngSwitch]="item.status">
+        <div *ngSwitchCase="'Disponible'"  class="alert alert-success" role="alert">
+         Disponible
+        </div>
+        <div *ngSwitchCase="'En Construction'" class="alert alert-warning" role="alert">
+        En Construction
+        </div>
+        <div *ngSwitchCase="'Vendu'" class="alert alert-danger" role="alert">
+         Vendu
+        </div>
+      </div>
+      <button (click)="showLocation(item.address)">Show Location</button>
+
+    </div>
+  </div>
+  
