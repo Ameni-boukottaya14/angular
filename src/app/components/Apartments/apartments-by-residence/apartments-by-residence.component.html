@@ -1,1 +1,17 @@
-<p>apartments-by-residence works!</p>
+<div class="container">
+    <h2> Apartments in {{ residenceName }} </h2>
+  
+    <!-- Add Apartment Button -->
+    <button class="add-btn" (click)="navigateToAddApartment()">+ Add Apartment</button>
+  
+    <div class="apartments-list">
+      <div *ngFor="let apartment of apartments" class="apartment-card">
+        <h3>Apartment {{ apartment.apartNum }}</h3>
+        <p><strong>Floor:</strong> {{ apartment.floorNum }}</p>
+        <p><strong>Surface:</strong> {{ apartment.surface }} m²</p>
+        <p><strong>Category:</strong> {{ apartment.category }}</p>
+        <p *ngIf="apartment.terrace"><strong>Terrace:</strong> {{ apartment.surfaceterrace }} m²</p>
+      </div>
+    </div>
+  </div>
+  

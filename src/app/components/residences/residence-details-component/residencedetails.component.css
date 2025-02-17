@@ -1,0 +1,68 @@
+.residence-details {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .image-container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .residence-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .residence-info h2 {
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .status-available {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .status-sold {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .status-construction {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

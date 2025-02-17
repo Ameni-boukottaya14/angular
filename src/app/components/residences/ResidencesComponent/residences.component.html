@@ -6,6 +6,7 @@
     <div *ngFor="let item of listResidences | filter: searchText" class="residence-card">
       <img [src]="item.image" alt="{{ item.name }}" class="residence-img">
       <h3>{{ item.name }}</h3>
+
   
       <div [ngSwitch]="item.status">
         <div *ngSwitchCase="'Disponible'"  class="alert alert-success" role="alert">
@@ -18,9 +19,13 @@
          Vendu
         </div>
       </div>
+
+      <button [routerLink]="['/residences/details', item.id]">Details</button>
   
       <button (click)="showLocation(item.address)">Show Location</button>
-      <button (click)="addToFavorites(item)">Like</button>
+      <button (click)="addToFavorites(item)">Like ❤️</button>
+      <button [routerLink]="['/residences', item.id, 'apartments']" class="btn btn-dark btn-sm mt-2">Apartments List</button>
+
 
     </div>
     <h2>Favorites</h2>
