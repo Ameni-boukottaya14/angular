@@ -1,1 +1,20 @@
-<p>residence-details-component works!</p>
+<div *ngIf="residence" class="residence-details">
+  <div class="image-container">
+    <img [src]="residence.image" alt="{{ residence.name }}" class="residence-image">
+  </div>
+
+  <div class="residence-info">
+    <h2>{{ residence.name }}</h2>
+    <p><strong>Adresse :</strong> {{ residence.address }}</p>
+    
+    <div [ngClass]="getStatusClass(residence.status)" class="status-badge">
+      {{ residence.status }}
+    </div>
+
+    <div class="buttons">
+      <button class="btn-primary" (click)="goToNextResidence()">Next</button>
+      <a (click)="addRes()" class="btn btn-primary">Add Residence</a>
+    <a (click)="updateRes(residence.id)" class="btn btn-primary">Update Residence</a>
+    </div>
+  </div>
+</div>
