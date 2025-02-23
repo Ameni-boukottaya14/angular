@@ -15,6 +15,7 @@ import { NotFoundComponent } from './components/not-found-component/not-found-co
 import { ApartmentsComponent } from './components/Apartments/apartments/apartments.component';
 import { ApartmentsByResidenceComponent } from './components/Apartments/apartments-by-residence/apartments-by-residence.component';
 import { AddApartmentComponent } from './components/Apartments/add-apartment/add-apartment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AddApartmentComponent } from './components/Apartments/add-apartment/add
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

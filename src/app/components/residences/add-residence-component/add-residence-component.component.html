@@ -1,1 +1,34 @@
-<h1>hello</h1>
+<div class="form-container">
+    <h2>Ajouter une nouvelle résidence</h2>
+    <form [formGroup]="residenceForm" (ngSubmit)="onSubmit()">
+  
+      <input type="hidden" formControlName="id" />
+  
+      <label for="name">Nom de la résidence :</label>
+      <input type="text" formControlName="name" id="name" required />
+      <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
+        <small>Le nom est obligatoire et doit comporter au moins 3 caractères.</small>
+      </div>
+  
+      <label for="address">Adresse :</label>
+      <input type="text" formControlName="address" id="address" required />
+      <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
+        <small>L'adresse est obligatoire.</small>
+      </div>
+  
+      <label for="image">Image :</label>
+      <input type="url" formControlName="image" id="image" required />
+      <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
+        <small>L'URL de l'image est obligatoire et doit être valide.</small>
+      </div>
+  
+      <label for="status">Statut :</label>
+      <select formControlName="status" id="status">
+        <option value="Disponible">Disponible</option>
+        <option value="En Construction">En Construction</option>
+        <option value="Vendu">Vendu</option>
+      </select>
+        <button type="submit" [disabled]="residenceForm.invalid">Ajouter la résidence</button>
+    </form>
+  </div>
+  

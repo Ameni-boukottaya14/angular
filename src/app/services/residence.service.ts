@@ -16,6 +16,10 @@ export class ResidenceService {
   getResidenceById(id: number): Residence | undefined {
     return this.residences.find(residence => residence.id === id);
   }
+
+  addResidence(residence: Residence): void {
+    this.residences.push(residence);
+  }
   
   getNextResidenceId(id: number): number | null {
     const currentIndex = this.residences.findIndex(res => res.id === id);
@@ -24,4 +28,5 @@ export class ResidenceService {
     }
     return null; // Pas de résidence suivante
   }}
+
   

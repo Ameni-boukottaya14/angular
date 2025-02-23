@@ -1,1 +1,31 @@
-<p>add-apartment works!</p>
+<div class="form-container">
+    <h2>Add New Apartment</h2>
+    <form [formGroup]="apartForm" (ngSubmit)="onSubmit()">
+      
+      <label>Apartment Number:</label>
+      <input type="number" formControlName="apartNum" required>
+  
+      <label>Floor Number:</label>
+      <input type="number" formControlName="floorNum" required>
+  
+      <label>Surface (m²):</label>
+      <input type="number" formControlName="surface" required>
+  
+      <label>
+        <input type="checkbox" formControlName="terrace"> Has Terrace
+      </label>
+  
+      <label>Terrace Surface (m²):</label>
+      <input type="number" formControlName="surfaceterrace">
+  
+      <label>Category:</label>
+      <select formControlName="category" required>
+        <option value="Luxury">Luxury</option>
+        <option value="Standard">Standard</option>
+        <option value="Penthouse">Penthouse</option>
+      </select>
+  
+      <button type="submit" [disabled]="apartForm.invalid">Add Apartment</button>
+    </form>
+  </div>
+  
