@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-apartments',
   templateUrl: './apartments.component.html',
@@ -14,9 +14,15 @@ export class ApartmentsComponent {
     { apartNum: 301, floorNum: 3, surface: 90, terrace: false, surfaceterrace: 0, category: "Standard", residenceId: 3 },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private CommonService: CommonService, 
+    private router: Router) {}
 
   navigateToAddApartment() {
     this.router.navigate(['/apartments/add']);
+  }
+
+  countSameSurface(surface: number): number {
+    return this.CommonService.getSameValueOf(this.apartments, 'surface', surface);
   }
 }

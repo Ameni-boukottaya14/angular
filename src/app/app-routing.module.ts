@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'updateResidence/:id', component: AddResidenceComponent},
   { path: 'residences/:id/apartments', component: ApartmentsByResidenceComponent },
   { path: 'apartments/add', component: AddApartmentComponent },
+  { path: '', redirectTo: '/residences', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 
 ];

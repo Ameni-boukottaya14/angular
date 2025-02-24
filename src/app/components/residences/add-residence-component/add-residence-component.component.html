@@ -1,34 +1,36 @@
-<div class="form-container">
-    <h2>Ajouter une nouvelle résidence</h2>
-    <form [formGroup]="residenceForm" (ngSubmit)="onSubmit()">
-  
-      <input type="hidden" formControlName="id" />
-  
-      <label for="name">Nom de la résidence :</label>
-      <input type="text" formControlName="name" id="name" required />
-      <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
-        <small>Le nom est obligatoire et doit comporter au moins 3 caractères.</small>
-      </div>
-  
-      <label for="address">Adresse :</label>
-      <input type="text" formControlName="address" id="address" required />
-      <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
-        <small>L'adresse est obligatoire.</small>
-      </div>
-  
-      <label for="image">Image :</label>
-      <input type="url" formControlName="image" id="image" required />
-      <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
-        <small>L'URL de l'image est obligatoire et doit être valide.</small>
-      </div>
-  
-      <label for="status">Statut :</label>
-      <select formControlName="status" id="status">
-        <option value="Disponible">Disponible</option>
-        <option value="En Construction">En Construction</option>
-        <option value="Vendu">Vendu</option>
-      </select>
-        <button type="submit" [disabled]="residenceForm.invalid">Ajouter la résidence</button>
-    </form>
+<form [formGroup]="residenceForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
+      Name is required and must be at least 3 characters long.
+    </div>
   </div>
-  
+
+  <div>
+    <label for="address">Address:</label>
+    <input id="address" formControlName="address" />
+    <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
+      Address is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="image">Image URL:</label>
+    <input id="image" formControlName="image" />
+    <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
+      Image URL is required and must be a valid URL.
+    </div>
+  </div>
+
+  <div>
+    <label for="status">Status:</label>
+    <select id="status" formControlName="status">
+      <option value="Disponible">Disponible</option>
+      <option value="Vendu">Vendu</option>
+      <option value="En Construction">En Construction</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="residenceForm.invalid">Add Residence</button>
+</form>
